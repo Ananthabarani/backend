@@ -1,3 +1,4 @@
+//Write a program that takes a float as input, converts it to int, and displays both values.
 package Day1;
 import java.util.*;
 public class PrimitiveTypeConversion {

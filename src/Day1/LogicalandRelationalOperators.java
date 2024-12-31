@@ -1,3 +1,5 @@
+//Create a program that reads two integers and prints whether the
+// first number is greater than the second using relational operators.
 package Day1;
 import java.util.*;
 public class LogicalandRelationalOperators {
