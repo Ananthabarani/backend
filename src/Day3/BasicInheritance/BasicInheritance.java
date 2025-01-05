@@ -1,5 +1,5 @@
-//Create a class Person with attributes name and age. Derive a class Student that adds rollNumber and marks.
-// Write methods to display both Person and Student details.
+//Create a class Day7.Person with attributes name and age. Derive a class Student that adds rollNumber and marks.
+// Write methods to display both Day7.Person and Student details.
 
 package Day3.BasicInheritance;
 

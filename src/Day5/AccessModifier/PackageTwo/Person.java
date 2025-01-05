@@ -1,4 +1,4 @@
-//Create a class Person with:
+//Create a class Day7.Person with:
 //name (public)
 //age (protected)
 //address (default)
