@@ -61,7 +61,6 @@ class SharedPrinter {
     }
     public static void main(String[] args) {
         SharedPrinter sharedPrinter = new SharedPrinter();
-
         // Object-level locking with the same instance
         Thread thread1 = new Thread(() -> sharedPrinter.printString("Hello"));
         Thread thread2 = new Thread(() -> sharedPrinter.countdown(5));
@@ -78,6 +77,7 @@ class SharedPrinter {
         Thread thread3 = new Thread(new Runnable() {
             @Override
             public void run() {
+
                 SharedPrinter.staticPrintString("Hello");
             }
         });
