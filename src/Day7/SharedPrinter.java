@@ -17,6 +17,7 @@ package Day7;//Object and method locking
 //OLL -> Obiect level Locking
 class SharedPrinter {
     //OLL
+    
     public synchronized void printString(String str) {
         for (int i = 0; i < 5; i++) {
             System.out.println(str);
@@ -74,8 +75,13 @@ class SharedPrinter {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Thread thread3 = new Thread(() -> SharedPrinter.staticPrintString("World"));
-        Thread thread4 = new Thread(() -> SharedPrinter.staticCountdown(5));
+        Thread thread3 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SharedPrinter.staticPrintString("Hello");
+            }
+        });
+        Thread thread4 = new Thread(() -> sharedPrinter.countdown(5));
 
         thread3.start();
         thread4.start();

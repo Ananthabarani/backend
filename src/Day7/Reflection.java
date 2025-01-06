@@ -33,7 +33,8 @@ public class Reflection {
                     method.invoke(person, 2000.00);
                 }
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
