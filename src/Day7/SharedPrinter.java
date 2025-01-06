@@ -17,7 +17,7 @@ package Day7;//Object and method locking
 //OLL -> Obiect level Locking
 class SharedPrinter {
     //OLL
-    
+
     public synchronized void printString(String str) {
         for (int i = 0; i < 5; i++) {
             System.out.println(str);
