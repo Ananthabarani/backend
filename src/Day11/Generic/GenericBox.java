@@ -21,20 +21,20 @@ public class GenericBox<T> {
             System.out.println("The box is empty.");
         }
     }
-    public boolean isOfType(Class<?> type) {
-        return type.isInstance(item);
+    public boolean isOfType(Class<?>  item) {
+        return item.isInstance(item);
     }
 
     public static void main(String[] args) {
-        GenericBox<String> stringBox = new GenericBox<>();
-        stringBox.setItem("Hello, World!");
-        stringBox.printItem();
-        System.out.println("Is item a String? " + stringBox.isOfType(String.class));
+        GenericBox<String> str = new GenericBox<>();
+        str.setItem("Hello, World!");
+        str.printItem();
+        System.out.println("Is item a String? " + str.isOfType(String.class));
 
-        GenericBox<Integer> integerBox = new GenericBox<>();
-        integerBox.setItem(42);
-        integerBox.printItem();
-        System.out.println("Is item an Integer? " + integerBox.isOfType(Integer.class));
+        GenericBox<Integer> integer = new GenericBox<>();
+        integer.setItem(42);
+        integer.printItem();
+        System.out.println("Is item an Integer? " + integer.isOfType(Integer.class));
 
         GenericBox<Double> doubleBox = new GenericBox<>();
         doubleBox.setItem(3.14);
