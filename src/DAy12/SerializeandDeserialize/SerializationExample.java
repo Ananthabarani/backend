@@ -1,3 +1,7 @@
+//Create a class that implements the Serializable interface.
+//Serialize the object to a file using ObjectOutputStream.
+//Deserialize the object from the file using ObjectInputStream.
+
 package DAy12.SerializeandDeserialize;
 
 import java.io.*;

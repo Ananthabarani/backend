@@ -1,3 +1,4 @@
+//Using any two buffers for Reading and Writing Data
 package DAy12.ReadingFileandWriting;
 
 import java.nio.CharBuffer;

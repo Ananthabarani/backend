@@ -1,3 +1,4 @@
+//Create 3 students mark statement records using jdbc.
 package DAy12.Sql;
 
 

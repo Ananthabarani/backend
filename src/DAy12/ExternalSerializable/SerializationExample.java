@@ -1,3 +1,6 @@
+//writeExternal(ObjectOutput out) for writing object data.
+//readExternal(ObjectInput in) for reading object data.
+
 package DAy12.ExternalSerializable;
 import DAy12.SerializeandDeserialize.Customer;
 

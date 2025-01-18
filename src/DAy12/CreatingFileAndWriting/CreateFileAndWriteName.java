@@ -1,3 +1,9 @@
+//In this exercise, you will create a new file (e.g., name.txt) and write your name to it.
+//Task:
+//Write a program that:
+//Creates a new text file called name.txt.
+//Write your name to the file.
+
 package DAy12.CreatingFileAndWriting;
 
 import java.io.BufferedWriter;

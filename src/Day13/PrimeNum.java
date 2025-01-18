@@ -1,3 +1,5 @@
+//Write a method to check if a number is prime.
+// Test cases should cover boundary values like 0, 1, negative numbers, and large primes.
 package Day13;
 
 public class PrimeNum {
