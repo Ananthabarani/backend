@@ -26,7 +26,7 @@ public class NameFilter {
     }
     public static List<Student> findStudentsByInitial(List<Student> students, char initial) {
         return students.stream()
-                .filter(student -> student.getName().startsWith(String.valueOf(initial))) // Filter by initial
+                .filter(student -> student.getName().startsWith(String.valueOf(initial)))
                 .collect(Collectors.toList());
     }
 
