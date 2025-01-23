@@ -2,9 +2,6 @@
 //Create a method that takes a Predicate<String> and a list of strings and
 // filters out all strings that start with a particular letter (e.g., 'A').
 package Day16;
-
-import com.sun.jdi.Value;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -26,8 +23,7 @@ public class StringStartsLetter {
         list.add("Adhi");
         list.add("Aarthi");
         list.add("Barath");
-        list.add("Barathiu");
+        list.add("Barathi");
         printList(list, (value) -> value.startsWith("A"));
-
     }
 }
