@@ -3,6 +3,8 @@ package Day18;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.Comparator.comparing;
+
 public class SreamExample {
     public static void main(String[] args) {
 
@@ -19,7 +21,7 @@ public class SreamExample {
     );
         System.out.println("Top 3 Students:");
         students.stream()
-                .sorted(Comparator.comparingDouble(Student::getAverageMarks).reversed())
+                .sorted(comparing(Student::getAverageMarks).reversed())
             .limit(3)
                 .forEach(System.out::println);
 
@@ -46,8 +48,10 @@ public class SreamExample {
 
         System.out.println("\nTop Student in Each Department:");
     Map<String, Optional<Student>> topStudentByDept = students.stream()
-            .collect(Collectors.groupingBy(Student::getDepartment,
-                    Collectors.maxBy(Comparator.comparingDouble(Student::getAverageMarks))));
+            .collect(Collectors.groupingBy(
+                    Student::getDepartment,
+                    Collectors.maxBy(comparing(Student::getAverageMarks))
+            ));
         topStudentByDept.forEach((department, student) ->
             System.out.println(department + ": " + student.orElse(null)));
 
