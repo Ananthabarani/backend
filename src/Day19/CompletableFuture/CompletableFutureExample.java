@@ -28,7 +28,7 @@ public class CompletableFutureExample {
             }
             return "Order";
         });
-        CompletableFuture<String> combinedFuture = userDataFuture.thenCombine(userOrdersFuture, CompletableFutureExample::combineResults);
+         CompletableFuture<String> combinedFuture = userDataFuture.thenCombine(userOrdersFuture, CompletableFutureExample::combineResults);
         try {
             System.out.println("Combined Result:\n" + combinedFuture.get());
         } catch (InterruptedException | ExecutionException e) {
