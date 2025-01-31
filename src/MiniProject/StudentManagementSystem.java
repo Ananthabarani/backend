@@ -5,11 +5,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static jdk.internal.org.jline.utils.Colors.s;
+
 public class StudentManagementSystem {
 
     private static List<Student> students=new ArrayList<>();
     public static String FlieName="Student.txt";
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws FileNotFoundException {
         try {
             load(); // Load existing students from the file at the start
         } catch (FileNotFoundException e) {
@@ -23,11 +25,8 @@ public class StudentManagementSystem {
             System.out.println("3. Search Student by ID");
             System.out.println("4. Update Student");
             System.out.println("5. Delete Student");
-            System.out.println("6. sort By Name");
-            System.out.println("7. sord Age");
-            System.out.println("8. Save ");
-            System.out.println("9. Read The File ");
-            System.out.println("10. Exit ");
+            System.out.println("6. sort By ");
+            System.out.println("8. Save and Exit ");
             System.out.print("Choose an option: ");
             int choice;
             try{
@@ -53,12 +52,9 @@ public class StudentManagementSystem {
                     deleteStudent();
                     break;
                 case 6 :
-                    sortByName();
+                    sortBy();
                     break;
                 case 7 :
-                    sortByAge();
-                    break;
-                case 8:
                     save();
                     System.out.println("Data saved. Exiting... Goodbye!");
                     exit=false;
@@ -260,6 +256,43 @@ public class StudentManagementSystem {
             System.out.println("--------------------------------");
         }
         save();
+
+    }
+    public static void sortBy(){
+        Scanner s=new Scanner(System.in);
+        boolean sort =true;
+        while (sort) {
+            System.out.println("\nChoose the filed by sort the Student:");
+            System.out.println("1. Name");
+            System.out.println("2. Age");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = s.nextInt();
+            s.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter New Name : ");
+                    sortByName();
+                    System.out.println("--------------------------------");
+                    break;
+
+                case 2:
+                    System.out.print("Enter New Age : ");
+                    int ageInput = s.nextInt();
+                    sortByAge();
+                    break;
+
+
+                case 3:
+                    sort = false;
+                    System.out.println("Exiting update menu.");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
 
     }
     //Sort By Name
