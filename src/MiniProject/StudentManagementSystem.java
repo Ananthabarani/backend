@@ -272,14 +272,11 @@ public class StudentManagementSystem {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter New Name : ");
                     sortByName();
                     System.out.println("--------------------------------");
                     break;
 
                 case 2:
-                    System.out.print("Enter New Age : ");
-                    int ageInput = s.nextInt();
                     sortByAge();
                     break;
 
