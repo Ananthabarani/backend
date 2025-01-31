@@ -13,7 +13,7 @@ public class StudentManagementSystem {
     public static String FlieName="Student.txt";
     public static void main(String[] args) throws FileNotFoundException {
         try {
-            load(); // Load existing students from the file at the start
+            load();
         } catch (FileNotFoundException e) {
             System.out.println("No existing data found. Starting with an empty student list.");
         }
@@ -26,15 +26,17 @@ public class StudentManagementSystem {
             System.out.println("4. Update Student");
             System.out.println("5. Delete Student");
             System.out.println("6. sort By ");
-            System.out.println("8. Save and Exit ");
+            System.out.println("7. Save and Exit ");
             System.out.print("Choose an option: ");
             int choice;
-            try{
-                choice=s.nextInt();
+            try {
+
+                choice = s.nextInt();
             } catch (NumberFormatException e) {
-                System.out.println("Invalid Input ,Please enter the Number format");
+                System.out.println("Invalid Input, Please enter a valid number.");
                 continue;
             }
+
             switch (choice){
                 case 1:
                     addStudent();
@@ -323,17 +325,35 @@ public class StudentManagementSystem {
 
     }
     public static void load() throws FileNotFoundException {
-        File  fr=new File(FlieName);
-        String stringLine;
-        try(BufferedReader br=new BufferedReader(new FileReader(fr))){
-            if((stringLine = br.readLine()) != null){
-                String word[]=stringLine.split(",");
-                students.add(new Student(Integer.parseInt(word[0]),word[1],Integer.parseInt(word[2]),word[3],word[4]));
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        File file = new File(FlieName);
+        if (!file.exists()) {
+            throw new FileNotFoundException("File not found: " + FlieName);
         }
 
-
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String stringLine;
+            while ((stringLine = br.readLine()) != null) {
+                if (stringLine.trim().isEmpty()) {
+                    continue;
+                }
+                String[] word = stringLine.split(",");
+                if (word.length == 5) {
+                    try {
+                        int id = Integer.parseInt(word[0].trim());
+                        String name = word[1].trim();
+                        int age = Integer.parseInt(word[2].trim());
+                        String grade = word[3].trim();
+                        String email = word[4].trim();
+                        students.add(new Student(id, name, age, grade, email));
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid number format in line: " + stringLine);
+                    }
+                } else {
+                    System.out.println("Invalid student record: " + stringLine);
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading the file: " + FlieName, e);
+        }
     }
 }
