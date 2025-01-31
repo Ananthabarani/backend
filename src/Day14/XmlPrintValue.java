@@ -24,7 +24,6 @@ public class XmlPrintValue extends DefaultHandler {
     public void startDocument() throws SAXException {
         System.out.println("Start Reading...");
     }
-
     @Override
     public void endDocument() throws SAXException {
         System.out.println("Reading Ended");
