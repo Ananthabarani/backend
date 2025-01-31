@@ -260,11 +260,11 @@ public class StudentManagementSystem {
         save();
 
     }
-    public static void sortBy(){
-        Scanner s=new Scanner(System.in);
-        boolean sort =true;
+    public static void sortBy() {
+        Scanner s = new Scanner(System.in);
+        boolean sort = true;
         while (sort) {
-            System.out.println("\nChoose the filed by sort the Student:");
+            System.out.println("\nChoose the field to sort the students:");
             System.out.println("1. Name");
             System.out.println("2. Age");
             System.out.println("3. Exit");
@@ -274,37 +274,33 @@ public class StudentManagementSystem {
 
             switch (choice) {
                 case 1:
-                    sortByName();
-                    System.out.println("--------------------------------");
+                    Thread sortByNameThread = new Thread(() -> {
+                        System.out.println("Sorting by Name...");
+                        students.stream().sorted(Comparator.comparing(Student::getName)).forEach(System.out::println);
+                        System.out.println("Sorting by Name completed.");
+                    });
+                    sortByNameThread.start();
                     break;
 
                 case 2:
-                    sortByAge();
+                    Thread sortByAgeThread = new Thread(() -> {
+                        System.out.println("Sorting by Age...");
+                        students.stream().sorted(Comparator.comparing(Student::getAge)).forEach(System.out::println);
+                        System.out.println("Sorting by Age completed.");
+                    });
+                    sortByAgeThread.start();
                     break;
-
 
                 case 3:
                     sort = false;
-                    System.out.println("Exiting update menu.");
+                    System.out.println("Exiting sort menu.");
                     break;
 
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
         }
-
     }
-    //Sort By Name
-    public static void sortByName(){
-       students.stream().sorted(Comparator.comparing(Student::getName)).forEach(System.out::println);
-        System.out.println("--------------------------------");
-    }
-    //Sort by Age
-    public  static void sortByAge(){
-        students.stream().sorted(Comparator.comparing(Student::getAge)).forEach(System.out::println);
-        System.out.println("--------------------------------");
-    }
-
     public static void save(){
 
       try {
