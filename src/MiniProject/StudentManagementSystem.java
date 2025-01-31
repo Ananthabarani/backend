@@ -4,8 +4,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import static jdk.internal.org.jline.utils.Colors.s;
+
 
 public class StudentManagementSystem {
 
@@ -86,7 +86,10 @@ public class StudentManagementSystem {
 
             System.out.print("Enter Grade: ");
             String grade = s.nextLine();
-
+            if(!(grade.equals("A")||grade.equals("B")||grade.equals("C")||grade.equals("D"))){
+                System.out.println("Enter the Valid Grade  A-Dg");
+                return;
+            }
             System.out.print("Enter Email: ");
             String emailformat = "[a-zA-Z0-9._-]*@[a-zA-Z0-9]+\\.(com|org|net)$";
             Pattern pattern = Pattern.compile(emailformat);
@@ -260,6 +263,7 @@ public class StudentManagementSystem {
         save();
 
     }
+  //sort by
     public static void sortBy() {
         Scanner s = new Scanner(System.in);
         boolean sort = true;
@@ -302,7 +306,6 @@ public class StudentManagementSystem {
         }
     }
     public static void save(){
-
       try {
           FileWriter fw = new FileWriter(FlieName);
           students.stream().forEach(student -> {
